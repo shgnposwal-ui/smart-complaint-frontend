@@ -1,0 +1,30 @@
+.stat-card{
+    color:white;
+    border-radius:18px;
+    padding:25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+    transition:.3s;
+    cursor:pointer;
+}
+
+.stat-card:hover{
+    transform:translateY(-8px);
+}
+
+.stat-card h6{
+    opacity:.9;
+    margin-bottom:10px;
+}
+
+.stat-card h2{
+    font-size:34px;
+    font-weight:bold;
+}
+
+.stat-icon{
+    font-size:45px;
+    opacity:.9;
+}
