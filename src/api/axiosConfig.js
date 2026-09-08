@@ -2,7 +2,7 @@ import axios from "axios";
 import { TOKEN_KEY } from "../utils/Constants";
 
 const api = axios.create({
-    baseURL: "http://localhost:8080/api",
+    baseURL: "https://smart-complaint-portal-production.up.railway.app/api",
     headers: {
         "Content-Type": "application/json"
     }
