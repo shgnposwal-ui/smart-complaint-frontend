@@ -1,22 +1,25 @@
 import axios from "axios";
-import { TOKEN_KEY } from "../utils/Constants";
 
 const api = axios.create({
-    baseURL: "https://smart-complaint-portal-production.up.railway.app/api",
+    baseURL: "http://localhost:8080/api",
     headers: {
         "Content-Type": "application/json"
     }
 });
 
-api.interceptors.request.use((config) => {
+api.interceptors.request.use(
+    (config) => {
+        const token = localStorage.getItem("jwtToken");
 
-    const token = localStorage.getItem(TOKEN_KEY);
+        if (token) {
+            config.headers.Authorization = `Bearer ${token}`;
+        }
 
-    if (token) {
-        config.headers.Authorization = `Bearer ${token}`;
+        return config;
+    },
+    (error) => {
+        return Promise.reject(error);
     }
-
-    return config;
-});
+);
 
 export default api;
